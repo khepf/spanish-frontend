@@ -4,7 +4,9 @@ const FlashCard = ({ cardId }: { cardId: string }) => {
     const [animal, setAnimal] = useState<any>(null);
 
     useEffect(() => {
-        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5296'; // Use environment variable
+        const apiUrl = import.meta.env.MODE === 'development'
+            ? import.meta.env.VITE_API_URL_LOCAL
+            : import.meta.env.VITE_API_URL_PROD;
         console.log(`Fetching animal with id: ${cardId}`);
         fetch(`${apiUrl}/api/animals/${cardId}`)
             .then(response => {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const FlashCard = ({ cardId }: { cardId: string }) => {
+const FlashCard = ({ cardId }: { cardId: number }) => {
     const [animal, setAnimal] = useState<any>(null);
 
     useEffect(() => {
